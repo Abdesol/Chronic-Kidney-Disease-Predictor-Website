@@ -36,7 +36,7 @@ export default function Home() {
   ];
 
   const predictClicked = async () => {
-    setOutput("Wait a second until the model predicts");
+    setOutput("Wait a second until the model predicts...");
     await fetch(
       "https://chronickidneydiseasepredictor.herokuapp.com/predict",
       {
@@ -69,7 +69,7 @@ export default function Home() {
             Welcome to Chronic Kidney Disease Predictor
           </div>
           <div className="text-xl font-bold text-center">
-            Fill the below entries with a correct data to get how likely you're
+            Fill the below entries with a correct data to get how likely you&apos;re
             suffering from chronic kidney disease.
           </div>
         </div>
