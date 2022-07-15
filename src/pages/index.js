@@ -69,7 +69,7 @@ export default function Home() {
             Welcome to Chronic Kidney Disease Predictor
           </div>
           <div className="text-xl font-bold text-center">
-            Fill the below entries with a correct data to get how likely you&apos;re
+            Fill the below entries with a correct data to get how likely you are
             suffering from chronic kidney disease.
           </div>
         </div>
