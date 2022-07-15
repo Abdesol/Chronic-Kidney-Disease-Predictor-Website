@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  background-color: #3d4451;
+  color: white;
+}
+
+@font-face {
+  font-family: "Nunito";
+  src: url("https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap");
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
