@@ -37,23 +37,21 @@ export default function Home() {
 
   const predictClicked = async () => {
     setOutput("Wait a second until the model predicts...");
-    await fetch(
-      "https://chronickidneydiseasepredictor.herokuapp.com/predict",
-      {
-        mode: 'no-cors',
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ array: fields }),
-      }
-    ).then(res => res.json())
-    .then(res => {
-      setOutput(res);
+    await fetch("https://chronickidneydiseasepredictor.herokuapp.com/predict", {
+      mode: "no-cors",
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ array: fields }),
     })
-    .catch(err => {
-      setOutput("Error occured while trying to predict!");
-    })
+      .then((res) => res.json())
+      .then((res) => {
+        setOutput(res);
+      })
+      .catch((err) => {
+        setOutput("Error occured while trying to predict!");
+      });
   };
 
   return (
@@ -233,7 +231,12 @@ export default function Home() {
       </div>
       <div className="text-xl mb-12 text-center">
         Made by
-        <a href="https://abdesol.me/" target="_blank" className="text-blue-500">
+        <a
+          href="https://abdesol.me/"
+          rel="noopener noreferrer"
+          target="_blank"
+          className="text-blue-500"
+        >
           {" "}
           Abdella Solomon❤️
         </a>
