@@ -1,7 +1,6 @@
 import Head from "next/head";
-import Image from "next/image";
 import { Combobox } from "react-widgets";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 export default function Home() {
   const [age, setAge] = useState(30);
@@ -20,26 +19,11 @@ export default function Home() {
   const [output, setOutput] = useState("");
 
   const fields = [age, bp, sg, al, su, pc, bgr, bu, sc, hemo, pcv, htn];
-  const fieldsMethod = [
-    setAge,
-    setBp,
-    setSg,
-    setAl,
-    setSu,
-    setPc,
-    setBgr,
-    setBu,
-    setSc,
-    setHemo,
-    setPcv,
-    setHtn,
-  ];
 
   const predictClicked = async () => {
     fields = { array: fields }
     setOutput("Wait a second until the model predicts...");
-
-    const resp = await fetch("https://chronickidneydiseasepredictor.herokuapp.com/predict", {
+    await fetch("https://chronickidneydiseasepredictor.herokuapp.com/predict", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -49,7 +33,11 @@ export default function Home() {
       .then(res => {
         res.json()
         .then((res)=>{
-          setOutput(res);
+          if(res.pred == 0){
+            setOutput(`You're ${res.proba}% likely suffering from chronic kidney disease. Take care!`);
+          }else{
+          setOutput(`You're ${res.proba}% likely safe from chronic kidney disease.`);
+          }
         })
 
       })
@@ -231,7 +219,7 @@ export default function Home() {
             onClick={predictClicked}
             className="bg-blue-500  hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
           />
-          <div className="text-xl text-center">{JSON.stringify(output)}</div>
+          <div className="text-xl text-center">{output.toString()}</div>
         </form>
       </div>
       <div className="text-xl mb-12 text-center">

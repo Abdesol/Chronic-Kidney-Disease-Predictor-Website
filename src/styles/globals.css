@@ -8,8 +8,8 @@
 }
 
 @font-face {
-  font-family: "Nunito";
-  src: url("https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap");
+  font-family: "Nunito", sans-serif;
+  src: url("https://fonts.googleapis.com/css?family=Nunito&display=swap");
 }
 
 summary::-webkit-details-marker {
