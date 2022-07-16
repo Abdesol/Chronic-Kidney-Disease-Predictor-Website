@@ -9,13 +9,13 @@ export default function Home() {
   const [sg, setSg] = useState(1.025);
   const [al, setAl] = useState(0);
   const [su, setSu] = useState(0);
-  const [pc, setPc] = useState("normal");
+  const [pc, setPc] = useState('normal');
   const [bgr, setBgr] = useState(80);
   const [bu, setBu] = useState(33);
   const [sc, setSc] = useState(1);
   const [hemo, setHemo] = useState(15);
   const [pcv, setPcv] = useState(44);
-  const [htn, setHtn] = useState("no");
+  const [htn, setHtn] = useState('no');
 
   const [output, setOutput] = useState("");
 
@@ -36,23 +36,28 @@ export default function Home() {
   ];
 
   const predictClicked = async () => {
+    fields = { array: fields }
     setOutput("Wait a second until the model predicts...");
-    await fetch("https://chronickidneydiseasepredictor.herokuapp.com/predict", {
-      mode: "no-cors",
+
+    const resp = await fetch("https://chronickidneydiseasepredictor.herokuapp.com/predict", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ array: fields }),
+      body: JSON.stringify(fields),
     })
-      .then((res) => res.json())
-      .then((res) => {
-        setOutput(res);
+      .then(res => {
+        res.json()
+        .then((res)=>{
+          setOutput(res);
+        })
+
       })
-      .catch((err) => {
+      .catch(err => {
         setOutput("Error occured while trying to predict!");
       });
-  };
+ };
+
 
   return (
     <div>
@@ -226,7 +231,7 @@ export default function Home() {
             onClick={predictClicked}
             className="bg-blue-500  hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
           />
-          <div className="text-xl text-center">{output}</div>
+          <div className="text-xl text-center">{JSON.stringify(output)}</div>
         </form>
       </div>
       <div className="text-xl mb-12 text-center">
