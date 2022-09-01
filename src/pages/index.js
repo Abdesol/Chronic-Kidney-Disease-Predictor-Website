@@ -23,7 +23,7 @@ export default function Home() {
   const predictClicked = async () => {
     fields = { array: fields }
     setOutput("Wait a second until the model predicts...");
-    await fetch("https://chronickidneydiseasepredictor.herokuapp.com/predict", {
+    await fetch("http://127.0.0.1:4500/predict", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
