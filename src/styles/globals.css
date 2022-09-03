@@ -1,15 +1,12 @@
+@import url("https://fonts.googleapis.com/css?family=Nunito&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 * {
-  background-color: #3d4451;
+  background-color: #5e6166;
   color: white;
-}
-
-@font-face {
-  font-family: "Nunito", sans-serif;
-  src: url("https://fonts.googleapis.com/css?family=Nunito&display=swap");
 }
 
 summary::-webkit-details-marker {

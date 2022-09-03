@@ -222,16 +222,16 @@ export default function Home() {
           <div className="text-xl text-center">{output.toString()}</div>
         </form>
       </div>
-      <div className="text-xl mb-12 text-center">
+      <div className="text-xl mb-12 text-center font-nunito">
         Made by
         <a
-          href="https://abdesol.me/"
+          href="https://ethioai.vercel.app/"
           rel="noopener noreferrer"
           target="_blank"
-          className="text-blue-500"
+          className="text-blue-700"
         >
           {" "}
-          Abdella Solomon❤️
+          EthioAI
         </a>
       </div>
     </div>
